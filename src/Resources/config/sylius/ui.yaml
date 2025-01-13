@@ -1,11 +1,9 @@
-sylius_ui:
-    events:
-        sylius.admin.layout.javascripts:
-            blocks:
-                monsieurbiz_richeditor_init_app:
-                    template: '@MonsieurBizSyliusRichEditorPlugin/Admin/app.html.twig'
+sylius_twig_hooks:
+    hooks:
+        'sylius_admin.base#javascripts':
+            monsieurbiz_sylius_richeditor_javascripts:
+                template: '@MonsieurBizSyliusRichEditorPlugin/Admin/app.html.twig'
 
-        sylius.shop.layout.javascripts:
-            blocks:
-                monsieurbiz_richeditor_init_shop:
-                    template: '@MonsieurBizSyliusRichEditorPlugin/Shop/app.html.twig'
+        'sylius_shop.base#javascripts':
+            monsieurbiz_sylius_richeditor_javascripts:
+                template: '@MonsieurBizSyliusRichEditorPlugin/Shop/app.html.twig'

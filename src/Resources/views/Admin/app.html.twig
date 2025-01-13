@@ -1,5 +1,5 @@
-{% include '@SyliusUi/_javascripts.html.twig' with {'path': 'bundles/monsieurbizsyliusricheditorplugin/js/rich-editor.js'} %}
-{% include '@SyliusUi/_stylesheets.html.twig' with {'path': 'bundles/monsieurbizsyliusricheditorplugin/css/rich-editor.css'} %}
+<script src="{{ asset('bundles/monsieurbizsyliusricheditorplugin/js/rich-editor.js', 'admin') }}"></script>
+<link rel="stylesheet" href="{{ asset('bundles/monsieurbizsyliusricheditorplugin/css/rich-editor.css', 'admin') }}">
 
 <div class="ui small basic modal" id="monsieurbiz-rich-editor-confirmation-modal">
     <div class="ui icon header">
@@ -211,13 +211,13 @@
         });
 
         // JQuery event triggered by @SyliusUiBundle/Resources/private/js/sylius-form-collection.js
-        $(document).on('collection-form-add', (event, addedElement) => {
-            document.dispatchEvent(new CustomEvent('rich-editor:reload', {
-                detail: {
-                    target: addedElement[0],
-                }
-            }));
-        });
+        // $(document).on('collection-form-add', (event, addedElement) => {
+        //     document.dispatchEvent(new CustomEvent('rich-editor:reload', {
+        //         detail: {
+        //             target: addedElement[0],
+        //         }
+        //     }));
+        // });
 
         document.addEventListener('monsieurBizRichEditorInitForm', (e) => {
             // Init dynamic editors
@@ -227,9 +227,9 @@
                 setupRichEditor(editor, manager.tags, manager.locale); // Retrieve tags and locale from the parent manager
             });
 
-            let form = e.detail.form;
-            $(form).find('[data-form-type="collection"]').CollectionForm();
-            $(form).find('.sylius-autocomplete').autoComplete();
+            // let form = e.detail.form;
+            // $(form).find('[data-form-type="collection"]').CollectionForm();
+            // $(form).find('.sylius-autocomplete').autoComplete();
         });
     });
 
